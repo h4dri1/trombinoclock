@@ -1,0 +1,6 @@
+- En tant que visiteur, je souhaite accéder à la page d'accueil pour accéder aux fonctionnalités
+- En tant que visiteur je souhaite pouvoir accéder à la liste des promotions dans le but d'accéder au détail des promotions
+- En tant que visiteur, je souhaite pouvoir accéder au détail d'une promotion pour voir la liste des étudiants
+- En tant que visiteur, je souhaite accéder au détail d'un étudiant pour accéder à ses informations et photo de profil
+- En tant qu'administrateur, je souhaite pouvoir modifier les informations d'une promotion
+- En tant qu'administrateur, je souhaite pouvoir modifier les informations d'un étudiant

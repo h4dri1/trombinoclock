@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+<h1>Etudiants dans la promo</h1>
+
+<ul>
+    <% for(const student of students ) { %>
+    <li>
+        <img src="<%= student.profile_picture_url %>" alt="<%= student.first_name %>" />
+        <%= student.first_name %> <%= student.last_name %>
+    </li>
+    <% 
+}
+%>
+</ul>
+
+<%- include('partials/footer') %>
