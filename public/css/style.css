@@ -81,9 +81,13 @@ h1, h2{
 .list-promos ul {
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
-    width: 100vw;
+    height: 70vh;
+    width: 70vw;
     list-style-type: none;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 .list-promos li {
