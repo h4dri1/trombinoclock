@@ -1,15 +1,28 @@
 <%- include('partials/header') %>
-<h1>Etudiants dans la promo</h1>
+<div class="menu">
+    
+    <h1>Etudiants dans la promo</h1>
+    <button class="btn-grad"><a class="btn-link" href="/">Acceuil</a></button>
 
-<ul>
-    <% for(const student of students ) { %>
-    <li>
-        <img src="<%= student.profile_picture_url %>" alt="<%= student.first_name %>" />
-        <%= student.first_name %> <%= student.last_name %>
-    </li>
-    <% 
-}
-%>
-</ul>
+</div>
+
+<div class="students-list">
+    <ul>
+        <% for(const student of students ) { %>
+        <li>
+            <div class="students-box">
+                <a href="/promo/students/<%= student.id %>/details">
+                    <img src="<%= student.profile_picture_url %>" alt="<%= student.first_name %>" />
+                </a>
+                <a class="btn-link" href="/promo/students/<%= student.id %>/details"><%= student.first_name %> <%= student.last_name %></a>
+            </div>
+
+
+        </li>
+        <% 
+    }
+    %>
+    </ul>
+</div>
 
 <%- include('partials/footer') %>

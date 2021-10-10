@@ -1,8 +1,15 @@
 <%- include('partials/header') %>
-<h1>Detail promo</h1>
-<h2><%= promo.name %></h2>
+<div class="menu">
+    
+    <h1>Detail promo</h1>
+    <button class="btn-grad"><a class="btn-link" href="/">Acceuil</a></button>
 
-<a href="<%= promo.github_organization %>"><%= promo.github_organization %></a>
+</div>
+
+<h2 class="menu"><%= promo.name %></h2>
+
+<button class="btn-grad"><a class="btn-link" href="/promo/<%= promo.id %>/students">Liste des étudiants</a></button>
+<button class="btn-grad"><a class="btn-link" href="<%= promo.github_organization %>"><%= promo.github_organization %></a></button>
 
 
 <%- include('partials/footer') %>

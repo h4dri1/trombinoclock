@@ -1,11 +1,19 @@
 <%- include('partials/header') %>
-<h1>Liste des promos</h1>
+<div class="menu">
+    
+    <h1>Liste des promos</h1>
+    <button class="btn-grad"><a class="btn-link" href="/">Acceuil</a></button>
 
-<ul>
-    <% for(const promo of promos) { %>
-    <li>
-        <a href="/promo/<%= promo.id %>"><%= promo.name %></a>
-    </li>
-    <% } %>
-</ul>
+</div>
+
+<div class="list-promos">
+    <ul>
+        <% for(const promo of promos) { %>
+            <li>
+                <button class="btn-grad"><a class="btn-link" href="/promo/<%= promo.id %>"><%= promo.name %></a></button>
+            </li>
+        <% } %>
+    </ul>
+</div>
+
 <%- include('partials/footer') %>

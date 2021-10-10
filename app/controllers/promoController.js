@@ -1,35 +1,45 @@
-const promos = require('../../data/promos.json');
+const {
+    Client
+} = require('pg');
+
+const client = new Client({
+    user: 'etudiant',
+    host: 'pg.oclock.lan',
+    database: 'trombi',
+    password: 'js4life',
+    port: 5432,
+});
+
+client.connect();
 
 const promoController = {
     promosList: (req, res) => {
-        res.render('promos', {
-            promos: promos
+        client.query(`SELECT * FROM "promo" ORDER BY name;`, (err, results) => {
+            if(err) {
+                console.error(err);
+            }
+            res.render('promos', {
+                promos: results.rows
+            });
         });
     },
 
     promoPage: (req, res, next) => {
         // req.params.id => L'id de la promo 
         const id = Number(req.params.id);
-
-        // let promo = null;
-        // for (let i = 0; i < promos.length; i++) {
-        //     if (promos[i].id === id) {
-        //         promos = promos[i];
-        //         break;
-        //     }
-        // }
-
-        // Je récupère l'élément qui correspond à id (undefined si non trouvé)
-        const promo = promos.find(p => p.id === id);
-
-        if (promo !== undefined) {
-            res.render('promo_detail', {
-                promo: promo
-            });
-        } else {
-            next();
-        }
-        // Afficher la page du détail d'une promotion
+        client.query(`SELECT id, name, github_organization FROM "promo" WHERE id = '${id}';`, (err, results) => {
+            if(err) {
+                console.error(err);
+            }
+            if(results !== undefined && results.rows.length > 0) {
+                res.render('promo_detail', {
+                    promo: results.rows[0]
+                });  
+            } else {
+                client.end();
+                next();
+            }
+        });
     }
 };
 

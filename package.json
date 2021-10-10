@@ -17,5 +17,13 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "pg": "^8.7.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-XIII/S04E02-trombinoclock-h4dri1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/O-clock-XIII/S04E02-trombinoclock-h4dri1/issues"
+  },
+  "homepage": "https://github.com/O-clock-XIII/S04E02-trombinoclock-h4dri1#readme"
 }

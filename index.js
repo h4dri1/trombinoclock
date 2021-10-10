@@ -7,7 +7,7 @@ const app = express();
 
 app.set('views', './app/views');
 app.set('view engine', 'ejs');
-app.set(express.static('./public'));
+app.use(express.static(__dirname + "/public"));
 
 app.use(router);
 
