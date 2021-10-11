@@ -3,12 +3,14 @@ const {
 } = require('pg');
 
 const client = new Client({
-    user: 'etudiant',
-    host: 'pg.oclock.lan',
+    user: 'trombi',
+    host: '127.0.0.1',
     database: 'trombi',
-    password: 'js4life',
+    password: 'cool',
     port: 5432,
 });
+
+let prom = [];
 
 client.connect();
 
@@ -18,6 +20,7 @@ const promoController = {
             if(err) {
                 console.error(err);
             }
+            prom = results.rows;
             res.render('promos', {
                 promos: results.rows
             });
@@ -31,12 +34,12 @@ const promoController = {
             if(err) {
                 console.error(err);
             }
-            if(results !== undefined && results.rows.length > 0) {
+            if(results.rows !== undefined) {
                 res.render('promo_detail', {
-                    promo: results.rows[0]
+                    targetPromo: results.rows[0],
+                    promos: prom
                 });  
             } else {
-                client.end();
                 next();
             }
         });

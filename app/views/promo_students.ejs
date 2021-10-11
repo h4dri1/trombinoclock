@@ -1,27 +1,18 @@
 <%- include('partials/header') %>
-<div class="menu">
-    
-    <h1>Etudiants dans la promo</h1>
-    <button class="btn-grad"><a class="btn-link" href="/">Acceuil</a></button>
+<%- include('partials/menu') %>
 
-</div>
-
-<div class="students-list">
+<div class="list-promos">
     <ul>
         <% for(const student of students ) { %>
-        <li>
-            <div class="students-box">
-                <a href="/promo/students/<%= student.id %>/details">
-                    <img src="<%= student.profile_picture_url %>" alt="<%= student.first_name %>" />
-                </a>
-                <a class="btn-link" href="/promo/students/<%= student.id %>/details"><%= student.first_name %> <%= student.last_name %></a>
-            </div>
-
-
-        </li>
-        <% 
-    }
-    %>
+            <li>
+                <div class="students-box">
+                    <a href="/promo/students/<%= student.id %>/details">
+                        <img src="<%= student.profile_picture_url %>" alt="<%= student.first_name %>" />
+                    </a>
+                    <a class="btn-link-box" href="/promo/students/<%= student.id %>/details"><%= student.first_name %> <%= student.last_name %></a>
+                </div>
+            </li>
+        <% } %>
     </ul>
 </div>
 

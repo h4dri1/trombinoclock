@@ -3,14 +3,16 @@ const {
 } = require('pg');
 
 const client = new Client({
-    user: 'etudiant',
-    host: 'pg.oclock.lan',
+    user: 'trombi',
+    host: '127.0.0.1',
     database: 'trombi',
-    password: 'js4life',
+    password: 'cool',
     port: 5432,
 });
 
 client.connect();
+
+let stud = [];
 
 const studentController = {
     studentsByPromo: (req, res, next) => {
@@ -20,12 +22,12 @@ const studentController = {
             if(err) {
                 console.error(err);
             }
-            if(results !== undefined && results.rows.length > 0) {
+            stud = results.rows;
+            if(results.rows !== undefined) {
                 res.render('promo_students', {
                     students: results.rows
                 });    
             } else {
-                client.end();
                 next();
             }
         });
@@ -38,12 +40,12 @@ const studentController = {
             if(err) {
                 console.error(err);
             }
-            if(results !== undefined && results.rows.length > 0) {
+            if(results.rows !== undefined) {
                 res.render('details', {
-                    student: results.rows[0]
-                });    
+                    targetStudent: results.rows[0], 
+                    students: stud                  
+                });
             } else {
-                client.end();
                 next();
             }
         });

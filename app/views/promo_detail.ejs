@@ -1,15 +1,33 @@
 <%- include('partials/header') %>
-<div class="menu">
-    
-    <h1>Detail promo</h1>
-    <button class="btn-grad"><a class="btn-link" href="/">Acceuil</a></button>
+<%- include('partials/menu') %>
 
+<div class="list-promos">
+    <ul>
+        <% for(const promo of promos) { %>
+            <li>
+                <% if(promo.id === targetPromo.id) { %>
+                    <div class="select-promo-box">
+                        <div class="link-box-promo-detail">
+                            <h3><a class="promo-link-box" href="/promos"><%= promo.name %></a></h3>
+                        </div>
+                        <div class="link-box-promo-detail">
+                            <img src="https://img.icons8.com/color-glass/30/000000/search.png"/><a class="btn-link-box" href="/promo/<%= promo.id %>/students">Liste des étudiants</a>        
+                        </div>
+                        <div class="link-box-promo-detail">
+                            <img src="https://img.icons8.com/color-glass/30/000000/github.png"/><a class="btn-link-box" href="<%= promo.github_organization %>">Page Github</a>
+                        </div>     
+                    </div>
+                <% } else { %>
+                    <div class="promo-box">
+                        <a href="/promo/<%= promo.id %>">
+                            <img src="https://img.icons8.com/color-glass/96/000000/home.png"/>
+                            <a class="btn-link-box" href="/promo/<%= promo.id %>"><%= promo.name %></a>
+                        </a>
+                    </div>
+                <% } %>
+            </li>
+        <% } %>
+    </ul>
 </div>
-
-<h2 class="menu"><%= promo.name %></h2>
-
-<button class="btn-grad"><a class="btn-link" href="/promo/<%= promo.id %>/students">Liste des étudiants</a></button>
-<button class="btn-grad"><a class="btn-link" href="<%= promo.github_organization %>"><%= promo.github_organization %></a></button>
-
 
 <%- include('partials/footer') %>

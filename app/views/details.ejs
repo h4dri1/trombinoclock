@@ -1,15 +1,33 @@
 <%- include('partials/header') %>
-<div class="menu">
-    
-    <h1>Detail étudiant</h1>
-    <button class="btn-grad"><a class="btn-link" href="/">Acceuil</a></button>
+<%- include('partials/menu') %>
 
+<div class="list-promos">
+    <ul>
+        <% for(const student of students) { %>
+            <li>
+                <% if(student.id === targetStudent.id) { %>
+                    <div class="select-student-box">
+                        <div class="link-box-promo-detail">
+                            <a href="/promo/<%= student.promo_id %>/students">
+                                <img src="https://img.icons8.com/color-glass/96/000000/github.png"/>  
+                            </a>                         
+                        </div>
+                        <div id="github_user">
+                            <p><%= student.github_username %></p>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <div class="students-box">
+                        <a href="/promo/students/<%= student.id %>/details">
+                            <img src="<%= student.profile_picture_url %>" alt="<%= student.first_name %>" />
+                        </a>
+                        <a class="btn-link-box" href="/promo/students/<%= student.id %>/details"><%= student.first_name %> <%= student.last_name %></a>
+                    </div>
+                <% } %>
+            </li>
+        <% } %>
+    </ul>
 </div>
 
-<div class="student-details">
-
-    <h1><%= student.first_name %> <%= student.last_name %> / <%= student.github_username %></h1>
-    <img src="<%= student.profile_picture_url %>" alt="<%= student.first_name %>" />
-
-</div>
 <%- include('partials/footer') %>
+
