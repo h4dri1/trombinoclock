@@ -6,7 +6,8 @@ const searchController = {
     },
 
     searchResult: (req, res) => {
-        const research = req.body.research;
+        let research = req.body.research;
+        research = research[0].toUpperCase() + research.slice(1);
         dataMapper.getStudentByResearch(research, (err, results) => {
             if(err) {
                 console.error(err);
@@ -14,7 +15,7 @@ const searchController = {
             if(results.rows !== undefined) {
                 if(results.rows.length > 1) {
                     res.render('result', {
-                        data: req.body,
+                        data: research,
                         result: results.rows,
                         multi: true
                     }); 

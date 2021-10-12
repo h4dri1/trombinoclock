@@ -16,7 +16,7 @@
         <% if(multi) { %>
             <% for(const targetResult of result) { %>
                 <li>
-                    <% if(targetResult.last_name === data.research || targetResult.first_name === data.research) { %>
+                    <% if(targetResult.last_name === data || targetResult.first_name === data) { %>
                         <div class="research-student-box">
                             <div class="link-box-student-detail">
                                 <img id="profil_pic" src="<%= targetResult.profile_picture_url %>" alt="<%= targetResult.first_name %>" />
