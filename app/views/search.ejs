@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+
+<%- include('partials/menu') %>
+
+<form class="wrap" action="/search" method="POST">
+    <div class="search">
+       <input type="text" class="searchTerm" name="research" placeholder="Rechercher une promo ou un étudiant">
+       <button class="searchButton">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+</form>
+
+<%- include('partials/footer') %>

@@ -5,7 +5,7 @@
     <ul>
         <% for(const promo of promos) { %>
             <li>
-                <% if(promo.id === targetPromo.id) { %>
+                <% if(Number(promo.id) === Number(targetPromo)) { %>
                     <div class="select-promo-box">
                         <div class="link-box-promo-detail">
                             <h3><a class="promo-link-box" href="/promos"><%= promo.name %></a></h3>

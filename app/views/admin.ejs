@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+
+<%- include('partials/menu') %>
+
+<div class=admin>
+    <div class="adminPanel">
+        <div class="adminWindowsTitle">
+            <p>Gestion des étudiants</p>
+        </div>
+        <form method="POST" action="/admin/addStudent">
+            <div class="promoChoice">
+                <div class="adminIcon">
+                    <img class="promoLabel" src="https://img.icons8.com/color-glass/30/000000/home.png"/>
+                </div>
+                <select class="selectPromo" name="promo">
+                    <% for(const targetPromo of promoList) { %>
+                        <option value="<%= targetPromo.id %>"><%= targetPromo.name %></option>
+                    <% } %>
+                </select>
+                <div class="adminIcon">
+                    <img src="https://img.icons8.com/color-glass/30/000000/user-male.png"/>
+                </div>
+                <input class="inputPromo" type="text" name="first_name" value="Prénom">
+                <div class="adminIcon">
+                    <img src="https://img.icons8.com/color-glass/30/000000/identification-documents.png"/>
+                </div>
+                <input class="inputPromo" type="text" name="last_name" value="Nom">
+                <div class="adminIcon">
+                    <img src="https://img.icons8.com/color-glass/30/000000/github.png"/>
+                </div>
+                <input class="inputPromo" type="text" name="github_username" value="Pseudo Github">
+                <button class="clearButton">
+                    <a class="btn-link-box" href="/admin/addStudent">
+                        <img src="https://img.icons8.com/color-glass/96/000000/add-user-male.png"/>
+                    </a>
+                    
+                </button>
+                <p id="addStudentText">Ajouter un étudiant</p>
+            </div>
+        </form>
+    </div>
+    <div class="adminPanel">
+        <div class="adminWindowsTitle">
+            <p>Gestion des promotions</p>
+        </div>
+    </div>
+    <div class="adminPanel">
+        <div class="adminWindowsTitle">
+            <p>Gestion des utilisateurs</p>
+        </div>
+    </div>
+    <div class="adminPanel">
+        <div class="adminWindowsTitle">
+            <p>Gestion admin</p>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

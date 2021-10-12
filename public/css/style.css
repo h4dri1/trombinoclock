@@ -11,77 +11,50 @@ body {
     background-image: url("/images/fond.jpg");
 }
 
- .btn-link:link {
+h1 {
+    margin-left: 11px;
+    font-size: 0.6em;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 2em;
+    margin:0;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 2em;
+    margin:0;
+    padding-bottom: 10px;
+}
+
+/* Link theme */
+
+ .btn-link:link, .btn-link:visited, .btn-link:hover, .btn-link:active {
      color: black;
      text-decoration: none;
  }
 
- .btn-link:visited {
-    color: black;
-    text-decoration: none;
-}
+ .btn-link {
+     font-weight: bold;
+ }
 
-.btn-link:hover {
-    color: black;
-    text-decoration: none;
-}
-
-.btn-link:active {
-    color: black;
-    text-decoration: none;
-}
-
-.btn-link {
-    font-weight: bold;
-}
-
-.btn-link-box:link {
-    color: white;
-    text-decoration: none;
-}
-
-.btn-link-box:visited {
-   color: white;
-   text-decoration: none;
-}
-
-.btn-link-box:hover {
-   color: white;
-   text-decoration: none;
-}
-
-.btn-link-box:active {
+ .btn-link-box:link, .btn-link-box:visited, .btn-link-box:hover, .btn-link-box:active {
    color: white;
    text-decoration: none;
 }
 
 .btn-link-box {
-   font-weight: bold;
+    font-weight: bold;
 }
 
-.promo-link-box:link {
+.promo-link-box:link, .promo-link-box:visited, .promo-link-box:hover, .promo-link-box:active, .promo-link-box {
     color: tomato;
     text-decoration: none;
 }
 
-.promo-link-box:visited {
-   color: tomato;
-   text-decoration: none;
-}
-
-.promo-link-box:hover {
-   color: tomato;
-   text-decoration: none;
-}
-
-.promo-link-box:active {
-   color: tomato;
-   text-decoration: none;
-}
-
-.promo-link-box {
-   font-weight: bold;
-}
+/* Menu Header */
 
 .menu {
     display: flex;
@@ -94,17 +67,39 @@ body {
     -moz-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
     align-items: center;
     justify-content: left;
+    background-color: #FA8BFF;
+    background-image: linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;     
 }
 
 .menu-box {
     display: flex;
-    background-color: white;
+    background-color: transparent;
     align-items: center;
     width: 100vw;
     margin-left: 10%;
     margin-right: 10%;
     justify-content: space-around;
 }
+
+.logo img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align:middle;
+}
+
+.main-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.logoEnd {
+    padding-right: 10px;
+}
+
+/* Promo */
 
 .promo-box {
     display: flex;
@@ -114,7 +109,7 @@ body {
     height: 150px;
     margin: 20px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color:rgba(8, 174, 234, 0.5);
     padding-top: 10px;
     border-radius: 50%;
     box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
@@ -140,24 +135,6 @@ body {
     -moz-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
 }
 
-.select-student-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 170px;
-    height: 150px;
-    margin: 20px;
-    text-align: left;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding-top: 10px;
-    font-size: 0.8em;
-    justify-content: center;
-    border-radius: 20%;
-    box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
-    -webkit-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
-    -moz-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
-}
-
 #github_user {
     color: white;
 }
@@ -172,41 +149,11 @@ body {
     justify-content: center;
 }
 
-.logo img {
-    max-width: 100%;
-    max-height: 100%;
-    vertical-align:middle;
-}
-
-.main-logo {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-}
-
-h1 {
-    margin-left: 11px;
-    font-size: 0.6em;
-    margin-top: 0;
-}
-
-h2 {
-    font-size: 2em;
-    margin:0;
-    padding-bottom: 10px;
-}
-
-h3 {
-    font-size: 2em;
-    margin:0;
-    padding-bottom: 10px;
-}
-
 .list-promos ul {
     display: flex;
     flex-wrap: wrap;
-    height: 80vh;
-    width: 80vw;
+    height: 85vh;
+    width: 85vw;
     list-style-type: none;
     margin-right: auto;
     margin-left: auto;
@@ -218,6 +165,8 @@ h3 {
     height: fit-content;
     width: fit-content;
 }
+
+/* Students */
 
 .students-list ul {
     display: flex;
@@ -233,14 +182,51 @@ h3 {
     align-items: center;
     width: 170px;
     height: 150px;
-    margin: 20px;
+    margin: 15px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding-top: 10px;
+    padding-top: 30px;
     border-radius: 20%;
     box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
     -webkit-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
     -moz-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    background-color:rgba(8, 174, 234, 0.5);
+}
+
+.select-student-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 170px;
+    height: 150px;
+    margin: 15px;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 30px;
+    font-size: 0.8em;
+    justify-content: center;
+    border-radius: 20%;
+    box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    -moz-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+}
+
+.students-box-research {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    margin: 15px;
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 100px;
+    border-radius: 20%;
+    box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    -moz-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    background-color:rgba(8, 174, 234, 0.5);
+    color: white;
+    font-weight: bold;
 }
 
 .students-box img {
@@ -249,6 +235,14 @@ h3 {
     border-radius: 50%;
     padding-bottom: 7px;
 }
+
+.students-box-research img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    padding-bottom: 7px;
+}
+
 
 .students-list img {
     height: 150px;
@@ -277,4 +271,199 @@ h3 {
     -webkit-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
     -moz-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
     
+}
+
+/* resarch */
+
+.research-student-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    text-align: left;
+    background-color:rgba(8, 174, 234, 0.5);
+    padding-top: 10px;
+    font-size: 0.8em;
+    justify-content: center;
+    border-radius: 20%;
+    box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    -moz-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+}
+
+#profil_pic {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    padding-bottom: 10px;
+}
+
+.link-box-student-detail {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.link-box-student-detail img {
+    padding-bottom: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.list-promos-results ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85vw;
+    list-style-type: none;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 100px;
+    align-items: center;
+    justify-content:center;
+}
+
+/* Search */
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+  -webkit-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+  -moz-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #b400cc;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: black;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #b400cc;
+  background: #b400cc;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* Admin Panel */
+
+.admin {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    height: 70vh;
+}
+
+.adminPanel {
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    width: 95%;
+    height: 100%;
+    margin-top: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    -moz-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    background-color:rgba(8, 174, 234, 0.6);
+}
+
+.adminPanel img {
+    padding-top: 10px;
+}
+
+.adminWindowsTitle {
+    width: 100%;
+    background-color:rgba(255, 255, 255, 0.6);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    -moz-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    font-weight: bold;
+    color: #6c19ff;
+}
+
+/* Gestion etudiants admin panel */
+
+.promoChoice {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.promoChoice img {
+    height: fit-content;
+    width: fit-content;
+}
+
+.adminIcon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.selectPromo {
+    height: 25px;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.inputPromo {
+    height: 25px;
+    width: 280px;
+    border-radius: 10px;
+    border: solid 0.5px black;
+}
+
+.clearButton {
+    background: none;
+    border: solid 3px white;
+    border-radius: 50%;
+    height: 140px;
+    width: 140px;
+    margin-left: 80px;
+    margin-top: 35px;
+    box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    -webkit-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+    -moz-box-shadow: 1px 15px 31px -12px rgba(0,0,0,0.64);
+}
+
+#addStudentText {
+    font-size: 1.5em;
+    color: rgb(77, 25, 219);
+    font-weight: bold;
 }

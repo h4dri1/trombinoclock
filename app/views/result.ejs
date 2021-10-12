@@ -1,0 +1,52 @@
+<%- include('partials/header') %>
+
+<%- include('partials/menu') %>
+
+<form class="wrap" action="/search" method="POST">
+    <div class="search">
+       <input type="text" class="searchTerm" name="research" placeholder="Rechercher une promo ou un étudiant">
+       <button class="searchButton">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+</form>
+
+<div class="list-promos-results">
+    <ul>
+        <% if(multi) { %>
+            <% for(const targetResult of result) { %>
+                <li>
+                    <% if(targetResult.last_name === data.research || targetResult.first_name === data.research) { %>
+                        <div class="research-student-box">
+                            <div class="link-box-student-detail">
+                                <img id="profil_pic" src="<%= targetResult.profile_picture_url %>" alt="<%= targetResult.first_name %>" />
+                            </div>
+                            <div class="link-box-student-detail">
+                                <%= targetResult.first_name %> <%= targetResult.last_name %></a>
+                            </div>
+                            <div class="link-box-student-detail">
+                                <img src="https://img.icons8.com/color-glass/30/000000/home.png"/>
+                                <img src="https://img.icons8.com/color-glass/30/000000/info.png"/>
+                            </div>
+                        </div>
+                    <% } %>
+                </li>
+            <% } %>
+        <% } else { %>
+            <div class="research-student-box">
+                <div class="link-box-student-detail">
+                    <img id="profil_pic" src="<%= result.profile_picture_url %>" alt="<%= result.first_name %>" />
+                </div>
+                <div class="link-box-student-detail">
+                    <%= result.first_name %> <%= result.last_name %></a>
+                </div>
+                <div class="link-box-student-detail">
+                    <img src="https://img.icons8.com/color-glass/30/000000/home.png"/>
+                    <img src="https://img.icons8.com/color-glass/30/000000/info.png"/>
+                </div>
+            </div>
+        <% } %>
+    </ul>
+</div>
+
+<%- include('partials/footer') %>
