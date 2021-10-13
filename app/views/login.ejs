@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+<%- include('partials/menu') %>
+
+<div class="login">
+    <div class="loginPanel">
+        <div class="loginWindowsTitle">
+            <%= status %>
+        </div>
+        <form method="POST" action="/login">
+            <div class="loginForm">
+                <div class='loginInput'>
+                    <input class="inputUser" type="text" name="user">
+                </div>
+                <div class='loginInput'>
+                    <input class="inputPassword" type="password" name="pswd">
+                </div>
+                <button class="clearButtonLogin">
+                    <a class="btnLinkLogin" href="/login">
+                        <img src="https://img.icons8.com/color-glass/48/000000/login-rounded-right.png"/>
+                    </a>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<%- include('partials/footer') %>

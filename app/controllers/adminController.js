@@ -2,32 +2,46 @@ const dataMapper = require('../dataMapper');
 
 const adminController = {
     adminPanel: (req, res) => {
-        dataMapper.getAllPromos((err, results) => {
-            if(err)
-                return res.status(500).send(err);
-            res.render('admin', {
-            promoList: results.rows
+        if(req.session.login !== process.env.ADMIN_USER && req.session.password !== process.env.ADMIN_PASS) {
+            if(req.session.login !== undefined) {
+                res.render('login', {
+                    status: 'Erreur'
+                });
+            } else {
+                res.render('login', {
+                    status: 'Login'
+                });
+            }
+        } else {
+            dataMapper.getAllPromos((err, results) => {
+                if(err)
+                    return res.status(500).send(err);
+                res.render('admin', {
+                    promoList: results.rows
+                });
             });
-        });
+        }
     },
 
     addStudent: (req, res) => {
         const studentInfo = req.body;
-        dataMapper.getAllPromos((err, results) => {
-            if(err)
-                return res.status(500).send(err);
-            if(!results)
-                return res.status(500).send('aucune enregistrement crée')
-            const res1 = results.rows;
+        if(req.session.login !== process.env.ADMIN_USER && req.session.password !== process.env.ADMIN_PASS) {
+            if(req.session.login !== undefined) {
+                res.render('login', {
+                    status: 'Mauvais mdp/user'
+                });
+            } else {
+                res.render('login', {
+                    status: 'Login'
+                });
+            }
+        } else {
             dataMapper.addStudent(studentInfo, (err, results) => {
                 if(err)
                     return res.status(500).send(err);
-                res.render('promo_detail', {
-                    targetPromo: studentInfo.promo,
-                    promos: res1
-                });
+                res.redirect(`/promo/${studentInfo.promo}/students`);
             });
-        });
+        }
     }
 }
 

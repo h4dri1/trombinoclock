@@ -8,31 +8,41 @@ const dataMapper = {
     },
 
     getPromoById: (id, callback) => {
-        client.query(`SELECT id, name, github_organization FROM "promo" WHERE id = '${id}';`, (err, results) => {
+        const text = `SELECT id, name, github_organization FROM "promo" WHERE id = $1;`;
+        const values = [id];
+        client.query(text, values, (err, results) => {
             callback(err, results);
         });
     },
 
     getStudentsByPromo: (promoId, callback) => {
-        client.query(`SELECT * FROM "student" WHERE promo_id = '${promoId}';`, (err, results) => {
+        const text = `SELECT * FROM "student" WHERE promo_id = $1;`;
+        const values = [promoId];
+        client.query(text, values, (err, results) => {
             callback(err, results);
         });
     },
 
     getStudentById: (id, callback) => {
-        client.query(`SELECT * FROM "student" WHERE id = '${id}';`, (err, results) => {
+        const text = `SELECT * FROM "student" WHERE id = $1;`;
+        const values = [id];
+        client.query(text, values, (err, results) => {
             callback(err, results);
         });
     },
 
     addStudent: (studentInfo, callback) => {
-        client.query(`INSERT INTO "student" ("first_name","last_name","github_username", "promo_id") VALUES ('${studentInfo.first_name}', '${studentInfo.last_name}', '${studentInfo.github_username}', ${Number(studentInfo.promo)});`, (err, results) => {
+        const text = `INSERT INTO "student" ("first_name","last_name","github_username", "profile_picture_url", "promo_id") VALUES ($1, $2, $3, $4, $5);`;
+        const values = [studentInfo.first_name, studentInfo.last_name, studentInfo.github_username, `https://github.com/${studentInfo.github_username}.png`, Number(studentInfo.promo)];
+        client.query(text, values, (err, results) => {
             callback(err, results);
         });
     },
 
     getStudentByResearch: (research, callback) => {
-        client.query(`SELECT * FROM "student" WHERE first_name = '${research}' OR last_name = '${research}';`, (err, results) => {
+        const text = `SELECT * FROM "student" WHERE first_name = $1 OR last_name = $1;`;
+        const values = [research];
+        client.query(text, values, (err, results) => {
             callback(err, results);
         });
     },

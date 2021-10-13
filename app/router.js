@@ -6,6 +6,7 @@ const promoController = require('./controllers/promoController');
 const searchController = require('./controllers/searchController');
 const studentController = require('./controllers/studentController');
 const adminController = require('./controllers/adminController');
+const authControler = require('./controllers/authController');
 
 const router = express.Router();
 
@@ -24,6 +25,12 @@ router.get('/promo/:id', promoController.promoPage);
 router.get('/promo/:id/students', studentController.studentsByPromo);
 
 router.get('/promo/students/:id/details', studentController.studentDetails);
+
+router.get('/login', authControler.getLogin);
+
+router.get('/admin/logout', authControler.logout);
+
+router.post('/login', authControler.postLogin);
 
 router.post('/search', searchController.searchResult);
 
