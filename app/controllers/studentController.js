@@ -6,9 +6,8 @@ const studentController = {
     studentsByPromo: (req, res, next) => {
         const promoId = Number(req.params.id);
         dataMapper.getStudentsByPromo(promoId, (err, results) => {
-            if(err) {
-                console.error(err);
-            }
+            if(err)
+                return res.status(500).send(err);
             stud = results.rows;
             if(results.rows !== undefined) {
                 res.render('promo_students', {
@@ -23,9 +22,8 @@ const studentController = {
     studentDetails: (req, res, next) => {
         const id = Number(req.params.id);
         dataMapper.getStudentById(id, (err, results) => {
-            if(err) {
-                console.error(err);
-            }
+            if(err)
+                return res.status(500).send(err);
             if(results.rows !== undefined) {
                 res.render('details', {
                     targetStudent: results.rows[0], 

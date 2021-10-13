@@ -35,6 +35,12 @@ const dataMapper = {
         client.query(`SELECT * FROM "student" WHERE first_name = '${research}' OR last_name = '${research}';`, (err, results) => {
             callback(err, results);
         });
+    },
+
+    getNumberOf: (callback) => {
+        client.query(`SELECT COUNT(*) FROM student UNION SELECT COUNT(*) FROM promo;`, (err, results) => {
+            callback(err, results);
+        });
     }
 }
 
