@@ -7,8 +7,7 @@
         <div class="adminWindowsTitle">
             <p>Gestion des étudiants</p>
         </div>
-        <form method="POST" action="/admin/addStudent">
-            <div class="promoChoice">
+        <form class="form" method="POST" action="/admin/addStudent">
                 <div class="adminIcon">
                     <img class="promoLabel" src="https://img.icons8.com/color-glass/30/000000/home.png"/>
                 </div>
@@ -29,16 +28,15 @@
                     <img src="https://img.icons8.com/color-glass/30/000000/github.png"/>
                 </div>
                 <input class="inputPromo" type="text" name="github_username" value="Pseudo Github">
-                <div>
-                    <button class="clearButton">
-                        <a class="btn-link-box" href="/admin/addStudent">
-                            <img src="https://img.icons8.com/color-glass/96/000000/add-user-male.png"/>
-                        </a>
-                    </button>
-                </div>
-                <p id="addStudentText">Ajouter un étudiant</p>
-            </div>
         </form>
+        <div class="gestionAdm">
+            <button class="clearButton">
+                <a class="btn-link-box" href="/admin/addStudent">
+                    <img src="https://img.icons8.com/color-glass/96/000000/add-user-male.png"/>
+                </a>
+            </button>
+        </div>
+        <p id="addStudentText">Ajouter un étudiant</p>
     </div>
     <div class="adminPanel">
         <div class="adminWindowsTitle">
@@ -53,15 +51,15 @@
                     <img src="https://img.icons8.com/color-glass/30/000000/github.png"/>
                 </div>
                 <input class="inputPromo" type="text" name="github_username" value="Github">
-                <div class="gestionAdm">
-                    <button class="clearButton">
-                        <a class="btn-link-box" href="/admin/addStudent">
-                            <img src="https://img.icons8.com/color-glass/96/000000/home.png"/>
-                        </a>                  
-                    </button>
-                </div>
-                <p id="addStudentText">Ajouter une promotion</p>
         </form>
+        <div class="gestionAdm">
+            <button class="clearButton">
+                <a class="btn-link-box" href="/admin/addStudent">
+                    <img src="https://img.icons8.com/color-glass/96/000000/home.png"/>
+                </a>                  
+            </button>
+        </div>
+        <p id="addStudentText">Ajouter une promotion</p>
     </div>
     <div class="adminPanel">
         <div class="adminWindowsTitle">

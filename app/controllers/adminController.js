@@ -2,7 +2,7 @@ const dataMapper = require('../dataMapper');
 
 const adminController = {
     adminPanel: (req, res) => {
-        if(req.session.login !== process.env.ADMIN_USER && req.session.password !== process.env.ADMIN_PASS) {
+        if(req.session.login !== process.env.ADMIN_USER || req.session.password !== process.env.ADMIN_PASS) {
             if(req.session.login !== undefined) {
                 res.render('login', {
                     status: 'Erreur'
