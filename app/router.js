@@ -38,4 +38,8 @@ router.post('/admin/removeStudent', adminController.removeStudent);
 
 router.post('/admin/addStudent', adminController.addStudent);
 
+router.post('/admin/removePromo', adminController.removePromo);
+
+router.post('/admin/addPromo', adminController.addPromo);
+
 module.exports = router;

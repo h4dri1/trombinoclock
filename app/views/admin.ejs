@@ -46,7 +46,7 @@
         <div class="adminWindowsTitle">
             <p>Gestion des promotions</p>
         </div>
-        <form class="form" method="POST" action="/admin/addStudent">
+        <form class="form" method="POST">
                 <div class="adminIcon">
                     <img class="promoLabel" src="https://img.icons8.com/color-glass/30/000000/home.png"/>
                 </div>
@@ -54,15 +54,20 @@
                 <div class="adminIcon">
                     <img src="https://img.icons8.com/color-glass/30/000000/github.png"/>
                 </div>
-                <input class="inputPromo" type="text" name="github_username" value="Github">
+                <input class="inputPromo" type="text" name="github_organization" value="Github">
+                <div class="gestionAdm">
+                    <button class="clearButton" type="submit" formaction="/admin/addPromo">
+                        <a class="btn-link-box" href="/admin/addPromo">
+                            <img src="https://img.icons8.com/color-glass/60/000000/plus-math.png"/>
+                        </a>                  
+                    </button>
+                    <button class="clearButton" type="submit" formaction="/admin/removePromo">
+                        <a class="btn-link-box" href="/admin/removePromo">
+                            <img src="https://img.icons8.com/color-glass/48/000000/delete-sign.png"/>
+                        </a>                  
+                    </button>
+                </div>
         </form>
-        <div class="gestionAdm">
-            <button class="clearButton">
-                <a class="btn-link-box" href="/admin/addStudent">
-                    <img src="https://img.icons8.com/color-glass/60/000000/home.png"/>
-                </a>                  
-            </button>
-        </div>
     </div>
     <div class="adminPanel">
         <div class="adminWindowsTitle">

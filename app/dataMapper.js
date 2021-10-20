@@ -47,6 +47,23 @@ const dataMapper = {
         });
     },
 
+    addPromo: (promoInfo, callback) => {
+        console.log(promoInfo);
+        const text = `INSERT INTO "promo" ("id", "name", "github_organization") VALUES ((SELECT MAX(id)+1 FROM promo), $1, $2);`;
+        const values = [promoInfo.name, promoInfo.github_organization];
+        client.query(text, values, (err, results) => {
+            callback(err, results);
+        });
+    },
+
+    removePromo: (promoInfo, callback) => {
+        const text = `DELETE FROM promo WHERE name = $1 AND github_organization = $2;`;
+        const values = [promoInfo.name, promoInfo.github_organization];
+        client.query(text, values, (err, results) => {
+            callback(err, results);
+        });
+    },
+
     getStudentByResearch: (research, callback) => {
         const text = `SELECT * FROM "student" WHERE first_name = $1 OR last_name = $1;`;
         const values = [research];
