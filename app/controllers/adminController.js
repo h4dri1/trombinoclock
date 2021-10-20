@@ -42,6 +42,27 @@ const adminController = {
                 res.redirect(`/promo/${studentInfo.promo}/students`);
             });
         }
+    },
+
+    removeStudent: (req, res) => {
+        const studentInfo = req.body;
+        if(req.session.login !== process.env.ADMIN_USER && req.session.password !== process.env.ADMIN_PASS) {
+            if(req.session.login !== undefined) {
+                res.render('login', {
+                    status: 'Mauvais mdp/user'
+                });
+            } else {
+                res.render('login', {
+                    status: 'Login'
+                });
+            }
+        } else {
+            dataMapper.removeStudent(studentInfo, (err, results) => {
+                if(err)
+                    return res.status(500).send(err);
+                res.redirect(`/promo/${studentInfo.promo}/students`);
+            });
+        }
     }
 }
 

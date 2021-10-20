@@ -34,6 +34,8 @@ router.post('/login', authController.postLogin);
 
 router.post('/search', searchController.searchResult);
 
+router.post('/admin/removeStudent', adminController.removeStudent);
+
 router.post('/admin/addStudent', adminController.addStudent);
 
 module.exports = router;

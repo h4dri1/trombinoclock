@@ -7,36 +7,40 @@
         <div class="adminWindowsTitle">
             <p>Gestion des étudiants</p>
         </div>
-        <form class="form" method="POST" action="/admin/addStudent">
-                <div class="adminIcon">
-                    <img class="promoLabel" src="https://img.icons8.com/color-glass/30/000000/home.png"/>
-                </div>
-                <select class="selectPromo" name="promo">
-                    <% for(const targetPromo of promoList) { %>
-                        <option value="<%= targetPromo.id %>"><%= targetPromo.name %></option>
-                    <% } %>
-                </select>
-                <div class="adminIcon">
-                    <img src="https://img.icons8.com/color-glass/30/000000/user-male.png"/>
-                </div>
-                <input class="inputPromo" type="text" name="first_name" value="Prénom">
-                <div class="adminIcon">
-                    <img src="https://img.icons8.com/color-glass/30/000000/identification-documents.png"/>
-                </div>
-                <input class="inputPromo" type="text" name="last_name" value="Nom">
-                <div class="adminIcon">
-                    <img src="https://img.icons8.com/color-glass/30/000000/github.png"/>
-                </div>
-                <input class="inputPromo" type="text" name="github_username" value="Pseudo Github">
+        <form class="form" method="POST">
+            <div class="adminIcon">
+                <img class="promoLabel" src="https://img.icons8.com/color-glass/30/000000/home.png"/>
+            </div>
+            <select class="selectPromo" name="promo">
+                <% for(const targetPromo of promoList) { %>
+                    <option value="<%= targetPromo.id %>"><%= targetPromo.name %></option>
+                <% } %>
+            </select>
+            <div class="adminIcon">
+                <img src="https://img.icons8.com/color-glass/30/000000/user-male.png"/>
+            </div>
+            <input class="inputPromo" type="text" name="first_name" value="Prénom">
+            <div class="adminIcon">
+                <img src="https://img.icons8.com/color-glass/30/000000/identification-documents.png"/>
+            </div>
+            <input class="inputPromo" type="text" name="last_name" value="Nom">
+            <div class="adminIcon">
+                <img src="https://img.icons8.com/color-glass/30/000000/github.png"/>
+            </div>
+            <input class="inputPromo" type="text" name="github_username" value="Pseudo Github">
+            <div class="gestionAdm">
+                <button class="clearButton" type="submit" formaction="/admin/addStudent">
+                    <a class="btn-link-box" href="/admin/addStudent">
+                        <img src="https://img.icons8.com/color-glass/60/000000/add-user-male.png"/>
+                    </a>
+                </button>
+                <button class="clearButton" type="submit" formaction="/admin/removeStudent">
+                    <a class="btn-link-box" href="/admin/removeStudent">
+                        <img src="https://img.icons8.com/color-glass/60/000000/remove-user-male.png"/>
+                    </a>
+                </button>
+            </div>
         </form>
-        <div class="gestionAdm">
-            <button class="clearButton">
-                <a class="btn-link-box" href="/admin/addStudent">
-                    <img src="https://img.icons8.com/color-glass/96/000000/add-user-male.png"/>
-                </a>
-            </button>
-        </div>
-        <p id="addStudentText">Ajouter un étudiant</p>
     </div>
     <div class="adminPanel">
         <div class="adminWindowsTitle">
@@ -55,11 +59,10 @@
         <div class="gestionAdm">
             <button class="clearButton">
                 <a class="btn-link-box" href="/admin/addStudent">
-                    <img src="https://img.icons8.com/color-glass/96/000000/home.png"/>
+                    <img src="https://img.icons8.com/color-glass/60/000000/home.png"/>
                 </a>                  
             </button>
         </div>
-        <p id="addStudentText">Ajouter une promotion</p>
     </div>
     <div class="adminPanel">
         <div class="adminWindowsTitle">
@@ -81,11 +84,10 @@
         <div class="gestionAdm">
             <button class="clearButton">
                 <a class="btn-link-box" href="/admin/logout">
-                    <img src="https://img.icons8.com/color-glass/96/000000/export.png"/>
+                    <img src="https://img.icons8.com/color-glass/60/000000/export.png"/>
                 </a>
             </button>
         </div>
-        <p id="addStudentText">Déconnexion</p>
     </div>
 </div>
 

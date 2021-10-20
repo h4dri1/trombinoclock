@@ -39,6 +39,14 @@ const dataMapper = {
         });
     },
 
+    removeStudent: (studentInfo, callback) => {
+        const text = `DELETE FROM student WHERE first_name = $1 AND last_name = $2 AND github_username = $3 AND promo_id = $4;`;
+        const values = [studentInfo.first_name, studentInfo.last_name, studentInfo.github_username, Number(studentInfo.promo)];
+        client.query(text, values, (err, results) => {
+            callback(err, results);
+        });
+    },
+
     getStudentByResearch: (research, callback) => {
         const text = `SELECT * FROM "student" WHERE first_name = $1 OR last_name = $1;`;
         const values = [research];
