@@ -1,4 +1,4 @@
-const authControler = {
+const authController = {
     getLogin: (req, res) => {
         res.render('login', {
             status: 'Login'
@@ -19,4 +19,4 @@ const authControler = {
     }
 }
 
-module.exports = authControler;
+module.exports = authController;
